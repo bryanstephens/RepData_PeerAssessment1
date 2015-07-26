@@ -159,8 +159,8 @@ head(dataCopy)
 #### 2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 ```r
-imputedIntervalAverage <- aggregate(steps ~ interval, data = dataCopy, mean)
-qplot(x = interval, y = steps, data = dataCopy, facets = dayType ~ ., geom = "line")
+imputedIntervalAverage <- aggregate(steps ~ interval + dayType, data = dataCopy, mean)
+qplot(x = interval, y = steps, data = imputedIntervalAverage, facets = dayType ~ ., geom = "line")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
